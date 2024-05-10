@@ -5,6 +5,7 @@ import Button, {ButtonOutline} from './components/button/button.jsx'
 
 import DownloadIcon from '@mui/icons-material/Download';
 import Course, { CourseNoPassed, CoursePassed, CourseNoPassedOutline } from './components/course/course.jsx';
+import Checkbox from './components/checkbox/checkbox.jsx';
 
 function App() {
 
@@ -23,6 +24,8 @@ function App() {
         <CoursePassed name="React desde cero"/>
         <CourseNoPassed name="React desde cero, prueba de test"/>
         <CourseNoPassedOutline name="React desde cero, prueba de test"/>
+
+        <Checkbox text="Carga minima"/>
       </div>
     </>
   )
