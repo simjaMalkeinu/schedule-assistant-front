@@ -5,7 +5,7 @@ export const colorPalet = {
     quaternary: '#89BDB6',
     quinary: '#EDE1C5',
     success: '#28a745',
-    danger: '#dc3545',
+    danger: '#8B3833',
     warning: '#ffc107',
     info: '#17a2b8',
     light: '#f8f9fa',
