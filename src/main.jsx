@@ -4,6 +4,7 @@ import { RouterProvider } from 'react-router-dom'
 
 import { routes } from './utils/routes.jsx'
 
+import '@fontsource/roboto';
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -4,14 +4,16 @@
 
 import { createBrowserRouter } from 'react-router-dom'
 import App from '../App.jsx'
+import Login from '../routes/home/login.jsx'
+import Register from '../routes/home/register.jsx'
 
 export const routes = createBrowserRouter([
     {
         path: "/",
-        element: <div>Hello world!</div>,
+        element: <Login />,
     }, {
-        path: "/about",
-        element: <div>About</div>
+        path: "/register",
+        element: <Register />
     }, {
         path: "/app",
         element: <App />
