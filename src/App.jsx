@@ -1,7 +1,9 @@
 import './App.css'
 
 import Sidebar from './components/sidebar/sidebar.jsx'
-import Button from './components/button/button.jsx'
+import Button, {ButtonOutline} from './components/button/button.jsx'
+
+import DownloadIcon from '@mui/icons-material/Download';
 
 function App() {
 
@@ -10,8 +12,11 @@ function App() {
       <Sidebar />
       
       <div className="container">
-        <h1>hola</h1>
-        <Button text="guardar"/>
+        <h1>Componentes</h1>
+        <Button text="Guardar"/>
+        <Button text="Descargar" icon=<DownloadIcon />  />
+        <ButtonOutline text="Cancelar"/>
+        <ButtonOutline text="Cancelar" icon=<DownloadIcon />/>
       </div>
     </>
   )
