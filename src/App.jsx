@@ -4,15 +4,13 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 import Sidebar from './components/sidebar.jsx'
-import { DashboardRoutes } from './utils/dashboardRoutes.jsx'
-
-import { RouterProvider } from 'react-router-dom'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+      <Sidebar />
       <header className="App-header">
         <img src={reactLogo} className="App-logo" alt="logo" />
         <img src={viteLogo} className="App-logo" alt="logo" />
@@ -25,8 +23,7 @@ function App() {
           </button>
         </p>
       </header>
-      <Sidebar />
-      <RouterProvider router={CurricularMap} />
+
     </>
   )
 }
