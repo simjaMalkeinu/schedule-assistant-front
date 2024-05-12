@@ -1,29 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
-import Sidebar from './components/sidebar.jsx'
+import Sidebar from './components/sidebar/sidebar.jsx'
+import Button, {ButtonOutline} from './components/button/button.jsx'
+
+import DownloadIcon from '@mui/icons-material/Download';
+import Course, { CourseNoPassed, CoursePassed, CourseNoPassedOutline } from './components/course/course.jsx';
+import Checkbox from './components/checkbox/checkbox.jsx';
+import Situations from './components/situations/situations.jsx';
+import FilterItem from './components/filterItem/filterItem.jsx';
+import ButtonCourseButton from './components/buttonCourseButton/buttonCourseButton.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
       <Sidebar />
-      <header className="App-header">
-        <img src={reactLogo} className="App-logo" alt="logo" />
-        <img src={viteLogo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>App.jsx</code> and save to test Vite + React.
-        </p>
-        <p>
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-      </header>
+      
+      <div className="container">
+        <h1>Componentes</h1>
+        <Button text="Guardar"/>
+        <Button text="Descargar" icon=<DownloadIcon />  />
+        <ButtonOutline text="Cancelar"/>
+        <ButtonOutline text="Cancelar" icon=<DownloadIcon />/>
 
+        <Course name="React desde cero, prueba de test"/>
+        <CoursePassed name="React desde cero"/>
+        <CourseNoPassed name="React desde cero, prueba de test"/>
+        <CourseNoPassedOutline name="React desde cero, prueba de test"/>
+
+        <Checkbox text="Carga minima"/>
+
+        <Situations situationType="Regulary"/>
+        <Situations situationType="No Regulary"/>
+        <Situations situationType="Dictaminary"/>
+
+        <FilterItem text="Carga minima"/>
+
+        <ButtonCourseButton action="passed"/>
+        <ButtonCourseButton action="no-passed"/>
+        <ButtonCourseButton />
+      </div>
     </>
   )
 }

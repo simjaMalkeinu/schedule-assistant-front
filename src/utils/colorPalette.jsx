@@ -1,0 +1,15 @@
+export const colorPalette = {
+    primary: '#00393F',
+    secondary: '#035E63',
+    terceary: '#33838B',
+    quaternary: '#89BDB6',
+    quinary: '#EDE1C5',
+    success: '#28a745',
+    danger: '#8B3833',
+    warning: '#ffc107',
+    info: '#17a2b8',
+    light: '#f8f9fa',
+    dark: '#343a40',
+    white: '#ffffff',
+    black: '#000000',
+}
