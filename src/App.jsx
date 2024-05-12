@@ -8,6 +8,7 @@ import Course, { CourseNoPassed, CoursePassed, CourseNoPassedOutline } from './c
 import Checkbox from './components/checkbox/checkbox.jsx';
 import Situations from './components/situations/situations.jsx';
 import FilterItem from './components/filterItem/filterItem.jsx';
+import ButtonCourseButton from './components/buttonCourseButton/buttonCourseButton.jsx';
 
 function App() {
 
@@ -34,6 +35,10 @@ function App() {
         <Situations situationType="Dictaminary"/>
 
         <FilterItem text="Carga minima"/>
+
+        <ButtonCourseButton action="passed"/>
+        <ButtonCourseButton action="no-passed"/>
+        <ButtonCourseButton />
       </div>
     </>
   )
