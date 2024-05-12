@@ -1,4 +1,4 @@
-import { colorPalet } from "../../utils/colorPalet.jsx";
+import { colorPalette } from "../../utils/colorPalette.jsx";
 import LogoutIcon from "@mui/icons-material/Logout";
 import {
   sidebarStyle,
@@ -36,14 +36,14 @@ export default function Sidebar() {
           style={{
             fontSize: "32px",
             fontWeight: "bold",
-            color: colorPalet.quinary,
+            color: colorPalette.quinary,
           }}
         >
           Simja Coto
         </p>
         <p style={{ fontSize: "20px", fontWeight: "bold" }}>2020600020</p>
       </div>
-      <hr style={{width: "70%", margin: "0 auto", borderColor: colorPalet.terceary}}/>
+      <hr style={{width: "70%", margin: "0 auto", borderColor: colorPalette.terceary}}/>
 
       {/* sidebar list */}
       <ul style={sidebarListStyle}>

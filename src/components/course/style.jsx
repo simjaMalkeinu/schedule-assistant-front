@@ -1,12 +1,12 @@
-import { colorPalet } from "../../utils/colorPalet";
+import { colorPalette } from "../../utils/colorPalette";
 
 
 export const courseStyle = {
     width: "100%",
     maxWidth: "140px",
     minHeight: "70px",
-    backgroundColor: colorPalet.primary,
-    color: colorPalet.white,
+    backgroundColor: colorPalette.primary,
+    color: colorPalette.white,
     textAlign: "center",
     padding: "10px 5px",
     borderRadius: "5px",
@@ -16,15 +16,17 @@ export const courseStyle = {
     alignItems: "center",
     gap: "5px",
     fontSize: "14px",
+    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
+
 };
 
 export const courseStyleOutline = {
     width: "100%",
     maxWidth: "140px",
     minHeight: "70px",
-    backgroundColor: colorPalet.white,
-    color: colorPalet.primary,
-    border: "2px solid " + colorPalet.terceary,
+    backgroundColor: colorPalette.white,
+    color: colorPalette.primary,
+    border: "2px solid " + colorPalette.terceary,
     textAlign: "center",
     padding: "10px 5px",
     borderRadius: "5px",
@@ -34,14 +36,16 @@ export const courseStyleOutline = {
     alignItems: "center",
     gap: "5px",
     fontSize: "14px",
+    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
+
 };
 
 export const courseNoPassedStyle = {
     width: "100%",
     maxWidth: "140px",
     minHeight: "70px",
-    backgroundColor: colorPalet.danger,
-    color: colorPalet.white,
+    backgroundColor: colorPalette.danger,
+    color: colorPalette.white,
     textAlign: "center",
     padding: "10px 5px",
     borderRadius: "5px",
@@ -51,15 +55,17 @@ export const courseNoPassedStyle = {
     alignItems: "center",
     gap: "5px",
     fontSize: "14px",
+    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
+
 };
 
 export const courseNoPassedStyleOutline = {
     width: "100%",
     maxWidth: "140px",
     minHeight: "70px",
-    backgroundColor: colorPalet.white,
-    color: colorPalet.danger,
-    border: "2px solid " + colorPalet.danger,
+    backgroundColor: colorPalette.white,
+    color: colorPalette.danger,
+    border: "2px solid " + colorPalette.danger,
     textAlign: "center",
     padding: "10px 5px",
     borderRadius: "5px",
@@ -69,4 +75,6 @@ export const courseNoPassedStyleOutline = {
     alignItems: "center",
     gap: "5px",
     fontSize: "14px",
+    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
+
 };

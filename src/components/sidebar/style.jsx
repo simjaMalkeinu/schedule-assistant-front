@@ -1,8 +1,8 @@
-import { colorPalet } from "../../utils/colorPalet.jsx";
+import { colorPalette } from "../../utils/colorPalette.jsx";
 
 export const sidebarStyle = {
-    backgroundColor: colorPalet.primary,
-    color: colorPalet.white,
+    backgroundColor: colorPalette.primary,
+    color: colorPalette.white,
     height: "100%",
     width: "300px",
     overflowX: "hidden",
@@ -24,14 +24,14 @@ export const sidebarListStyle = {
 
 export const sidebarListItemStyle = { 
     padding: "10px",
-    color: colorPalet.white,
+    color: colorPalette.white,
     textDecoration: "none",
     borderRadius: "5px",
     transition: "0.3s",
  };
 
 export const sidebarListItemLink = {
-    color: colorPalet.quinary,
+    color: colorPalette.quinary,
     textDecoration: "none",
     fontSize: "20px",
     fontWeight: "regular",

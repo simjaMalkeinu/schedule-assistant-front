@@ -1,10 +1,10 @@
-import { colorPalet } from "../../utils/colorPalet.jsx";
+import { colorPalette } from "../../utils/colorPalette.jsx";
 
 export const buttonStyle = {
     width: "100%",
     maxWidth: "140px",
-    backgroundColor: colorPalet.primary,
-    color: colorPalet.white,
+    backgroundColor: colorPalette.primary,
+    color: colorPalette.white,
     padding: "10px 0",
     borderRadius: "5px",
     border: "none",
@@ -17,16 +17,18 @@ export const buttonStyle = {
     justifyContent: "center",
     alignItems: "center",
     gap: "5px",
+    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
+
 };
 
 export const buttonStyleOutline = {
     width: "100%",
     maxWidth: "140px",
-    backgroundColor: colorPalet.white,
-    color: colorPalet.quaternary,
+    backgroundColor: colorPalette.white,
+    color: colorPalette.quaternary,
     padding: "10px 30px",
     borderRadius: "5px",
-    border: "2px solid " + colorPalet.quaternary,
+    border: "2px solid " + colorPalette.quaternary,
     cursor: "pointer",
     fontFamily: "Roboto condensed",
     fontSize: "16px",
@@ -35,5 +37,6 @@ export const buttonStyleOutline = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
     gap: "5px",  
 };
