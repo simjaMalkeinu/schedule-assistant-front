@@ -10,7 +10,9 @@
     "stg": "dotenvx run --env-file=.env.stg -- vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@dotenvx/dotenvx": "^0.38.0",
