@@ -3,6 +3,7 @@ import { colorPalette } from "../../utils/colorPalette.jsx";
 export const situationsStyles = {
     backgroundColor: colorPalette.primary,
     width: "100%",
+    minWidth: "150px",
     maxWidth: "150px",
     padding: "10px",
     borderRadius: "5px",

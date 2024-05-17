@@ -10,6 +10,7 @@ import CurricularMap from '../routes/dashboard/curricularMap.jsx'
 import Regulation from '../routes/dashboard/regulation.jsx'
 import ScheduleGenerate from '../routes/dashboard/scheduleGenerate.jsx'
 import ScheduleView from '../routes/dashboard/scheduleView.jsx'
+import Components from '../routes/home/Components.jsx'
 
 
 export const routes = createBrowserRouter([
@@ -34,5 +35,12 @@ export const routes = createBrowserRouter([
     }, {
         path: "/ScheduleView",
         element: <ScheduleView />
+    },{
+        path: "/Components",
+        element: <Components />
+    },
+    {
+        path: "*",
+        element: <h1>404 Not Found</h1>
     }
 ])
