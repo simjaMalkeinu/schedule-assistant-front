@@ -4,28 +4,28 @@ import { courseStyle, courseStyleOutline, courseNoPassedStyle, courseNoPassedSty
 export default function Course(props) {
   const { name } = props;
   return (
-    <div style={courseStyle}>{name}</div>
+    <button style={courseStyle}>{name}</button>
   )
 }
 
 export function CoursePassed(props) {
   const { name } = props;
   return (
-    <div style={courseStyleOutline}>{name}</div>
+    <button style={courseStyleOutline}>{name}</button>
   )
 }
 
 export function CourseNoPassed(props) {
   const { name } = props;
   return (
-    <div style={courseNoPassedStyle}>{name}</div>
+    <button style={courseNoPassedStyle}>{name}</button>
   )
 }
 
 export function CourseNoPassedOutline(props) {
   const { name } = props;
   return (
-    <div style={courseNoPassedStyleOutline}>{name}</div>
+    <button style={courseNoPassedStyleOutline}>{name}</button>
   )
 }
 
