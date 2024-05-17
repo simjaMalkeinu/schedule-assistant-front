@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "dotenvx run --env-file=.env.development -- vite",
-    "start": "dotenvx run --env-file=.env.production -- vite",
+    "prod": "dotenvx run --env-file=.env.production -- vite",
+    "start": "vite",
     "stg": "dotenvx run --env-file=.env.stg -- vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
