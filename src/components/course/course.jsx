@@ -1,46 +1,49 @@
 import PropTypes from "prop-types";
-import { courseStyle, courseStyleOutline, courseNoPassedStyle, courseNoPassedStyleOutline } from "./style";
+import {
+  courseStyle,
+  courseStyleOutline,
+  courseStyleDisable,
+  courseNoPassedStyleOutline,
+} from "./style";
 
 export default function Course(props) {
-  const { name } = props;
-  return (
-    <button style={courseStyle}>{name}</button>
-  )
-}
+  const { name, tipo, update, course } = props;
 
-export function CoursePassed(props) {
-  const { name } = props;
-  return (
-    <button style={courseStyleOutline}>{name}</button>
-  )
-}
+  const handleClick = () => {
+    if (update) {
+      update(course);
+    }
+  }
 
-export function CourseNoPassed(props) {
-  const { name } = props;
-  return (
-    <button style={courseNoPassedStyle}>{name}</button>
-  )
-}
+  if (tipo === "passed") {
+    return (
+      <button style={courseStyle} onClick={handleClick}>
+        {name}
+      </button>
+    );
+  } else if (tipo === "noPassed") {
+    return (
+      <button
+        style={courseNoPassedStyleOutline}
+        onClick={handleClick}
+      >
+        {name}
+      </button>
+    );
+  } else if (tipo === "disabled") {
+    return <button style={courseStyleDisable}>{name}</button>;
+  }
 
-export function CourseNoPassedOutline(props) {
-  const { name } = props;
   return (
-    <button style={courseNoPassedStyleOutline}>{name}</button>
-  )
+    <button style={courseStyleOutline} onClick={handleClick}>
+      {name}
+    </button>
+  );
 }
 
 Course.propTypes = {
   name: PropTypes.string,
-}
-
-CoursePassed.propTypes = {
-  name: PropTypes.string,
-}
-
-CourseNoPassed.propTypes = {
-  name: PropTypes.string,
-}
-
-CourseNoPassedOutline.propTypes = {
-  name: PropTypes.string,
-}
+  tipo: PropTypes.string,
+  update: PropTypes.func,
+  course: PropTypes.object,
+};

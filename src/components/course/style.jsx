@@ -1,3 +1,4 @@
+import { colors } from "@mui/material";
 import { colorPalette } from "../../utils/colorPalette";
 
 
@@ -22,9 +23,31 @@ export const courseStyle = {
 
 };
 
+export const courseStyleDisable = {
+    width: "100%",
+    maxWidth: "150px",
+    minWidth: "150px",
+    minHeight: "70px",
+    backgroundColor: colors.grey[300],
+    color: colors.grey[800],
+    textAlign: "center",
+    padding: "10px 5px",
+    borderRadius: "5px",
+    margin: "10px 0",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "5px",
+    fontSize: "14px",
+    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
+    border: "none"
+
+};
+
 export const courseStyleOutline = {
     width: "100%",
     maxWidth: "150px",
+    minWidth: "150px",
     minHeight: "70px",
     backgroundColor: colorPalette.white,
     color: colorPalette.primary,
@@ -45,6 +68,7 @@ export const courseStyleOutline = {
 export const courseNoPassedStyle = {
     width: "100%",
     maxWidth: "150px",
+    minWidth: "150px",
     minHeight: "70px",
     backgroundColor: colorPalette.danger,
     color: colorPalette.white,
@@ -64,6 +88,7 @@ export const courseNoPassedStyle = {
 export const courseNoPassedStyleOutline = {
     width: "100%",
     maxWidth: "150px",
+    minWidth: "150px",
     minHeight: "70px",
     backgroundColor: colorPalette.white,
     color: colorPalette.danger,

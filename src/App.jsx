@@ -1,15 +1,28 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
-import Course from "./components/course/course.jsx";
 
 import Sidebar from "./components/sidebar/sidebar.jsx";
 import Situations from "./components/situations/situations.jsx";
-import { courses } from "./utils/curricularMap.js";
+
+import { kardex } from "./utils/kardex.jsx";
+import CoursesList from "./components/list/CoursesList.jsx";
 
 function App() {
+  const [userCourses, setUserCourses] = useState([...kardex]);
+
   useEffect(() => {
     document.title = "Mapa Curricular";
-  }, []);
+  }, [userCourses]);
+
+  const handleUpdate = (course) => {
+    
+    // I want to update the userCourses state with the new course
+    // this course could be passed or noPassed
+    setUserCourses([...kardex])
+
+    console.log("update", course);
+  };
+
   return (
     <>
       <Sidebar />
@@ -56,29 +69,27 @@ function App() {
             </div>
           </div>
           <div className="flex gap-4 items-center">
-            <p style={{minWidth: "fit-content"}}>Situacion academica</p>
+            <p style={{ minWidth: "fit-content" }}>Situacion academica</p>
             <Situations situationType="Regulary" />
           </div>
         </div>
 
         <div className="flex flex-col items-end mb-5 pr-4">
-                <span style={{border: "solid 2px #035E63", borderRadius: "10px"}} className="px-10 py-2">30%</span>
-                <p>Total de creditos</p>
+          <span
+            style={{ border: "solid 2px #035E63", borderRadius: "10px" }}
+            className="px-10 py-2"
+          >
+            30%
+          </span>
+          <p>Total de creditos</p>
         </div>
 
         <div className="overflow-scroll">
-          {
-            // Aqui se renderizan los componentes de las materias
-            [...courses].reverse().map((periodo, i) => {
-              return (
-                <div key={i} className="flex gap-4 flex-nowrap">
-                  {periodo.map((course) => {
-                    return <Course key={course.idCourse} name={course.name} />;
-                  })}
-                </div>
-              );
-            })
-          }
+          <CoursesList
+            kardex={kardex}
+            update={handleUpdate}
+            modo="editar"
+          />
         </div>
       </div>
     </>
