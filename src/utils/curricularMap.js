@@ -264,7 +264,7 @@ export const courses = [
       },
       {
         idCourse: 31,
-        name: "ESCENARIOS VIRTUALES (COMPUTACIÓN)",
+        name: "ESCENARIOS VIRTUALES",
         tipo: "OPTATIVA",
         creditos: 5.0,
         horasTeoricas: 2.0,
@@ -272,7 +272,7 @@ export const courses = [
       },
       {
         idCourse: 32,
-        name: "HACKEO ÉTICO (INFORMÁTICA)",
+        name: "HACKEO ÉTICO",
         tipo: "OPTATIVA",
         creditos: 5.0,
         horasTeoricas: 2.0,
@@ -296,7 +296,7 @@ export const courses = [
       },
       {
         idCourse: 35,
-        name: "CONTABILIDAD FINANCIERA Y DE COSTOS",
+        name: "CONTABILIDAD FINAN. Y DE COSTOS",
         tipo: "OBLIGATORIA",
         creditos: 7.0,
         horasTeoricas: 3.0,
@@ -312,7 +312,7 @@ export const courses = [
       },
       {
         idCourse: 37,
-        name: "TEORÍA DE LA COMPUTACIÓN Y COMPILADORES",
+        name: "TEORÍA DE LA COMP. Y COMP.",
         tipo: "OBLIGATORIA",
         creditos: 7.0,
         horasTeoricas: 3.0,
@@ -349,7 +349,7 @@ export const courses = [
       },
       {
         idCourse: 41,
-        name: "INFORMÁTICA EN AMBIENTES PRODUCTIVOS",
+        name: "INFO. EN AMBIENTES PRODUCTIVOS",
         tipo: "OPTATIVA",
         creditos: 5.0,
         horasTeoricas: 2.0,
@@ -357,7 +357,7 @@ export const courses = [
       },
       {
         idCourse: 42,
-        name: "MOD. DETER. DE INVESTIGACIÓN DE OPERACIONES",
+        name: "MOD. DETER. DE INV. DE OPERACIONES",
         tipo: "OBLIGATORIA",
         creditos: 7.0,
         horasTeoricas: 3.0,
@@ -397,7 +397,7 @@ export const courses = [
       },
       {
         idCourse: 47,
-        name: "FUNDAMENTOS DE INTELIGENCIA ARTIFICIAL",
+        name: "FUND. DE INTELIGENCIA ARTIFICIAL",
         tipo: "OBLIGATORIA",
         creditos: 7.0,
         horasTeoricas: 3.0,
@@ -426,7 +426,7 @@ export const courses = [
     cursos:[
       {
         idCourse: 50,
-        name: "BIG DATA Y TOMA DE DECISIONES (INFORMÁTICA)",
+        name: "BIG DATA Y TOMA DE DECISIONES",
         tipo: "OPTATIVA",
         creditos: 5.0,
         horasTeoricas: 2.0,
@@ -434,7 +434,7 @@ export const courses = [
       },
       {
         idCourse: 51,
-        name: "MONITOREO Y ADMINISTRACIÓN DE REDES (COMPUTACIÓN)",
+        name: "MONITOREO Y ADMIN. DE REDES",
         tipo: "OPTATIVA",
         creditos: 5.0,
         horasTeoricas: 2.0,
@@ -450,7 +450,7 @@ export const courses = [
       },
       {
         idCourse: 53,
-        name: "SIMULADORES VIRTUALES (COMPUTACIÓN)",
+        name: "SIMULADORES VIRTUALES",
         tipo: "OPTATIVA",
         creditos: 5.0,
         horasTeoricas: 2.0,
@@ -474,7 +474,7 @@ export const courses = [
       },
       {
         idCourse: 56,
-        name: "FORMULACIÓN Y EVALUACIÓN DE PROYECTOS",
+        name: "FORM. Y EVAL. DE PROYECTOS",
         tipo: "OBLIGATORIA",
         creditos: 5.0,
         horasTeoricas: 1.0,
@@ -543,7 +543,7 @@ export const courses = [
       },
       {
         idCourse: 64,
-        name: "CALIDAD Y NORMALIZACIÓN DE SOFTWARE",
+        name: "CALIDAD Y NORM. DE SOFTWARE",
         tipo: "OBLIGATORIA",
         creditos: 6.0,
         horasTeoricas: 2.0,

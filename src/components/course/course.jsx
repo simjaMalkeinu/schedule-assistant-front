@@ -7,43 +7,30 @@ import {
 } from "./style";
 
 export default function Course(props) {
-  const { name, tipo, update, course } = props;
+  const { tipo, clickFun, course } = props;
 
-  const handleClick = () => {
-    if (update) {
-      update(course);
+  const getStyle = () => {
+    if (tipo === "passed") {
+      return courseStyle;
+    } else if (tipo === "noPassed") {
+      return courseNoPassedStyleOutline;
+    } else if (tipo === "disabled") {
+      return courseStyleDisable;
     }
-  }
+    return courseStyleOutline;
+  };
 
-  if (tipo === "passed") {
-    return (
-      <button style={courseStyle} onClick={handleClick}>
-        {name}
-      </button>
-    );
-  } else if (tipo === "noPassed") {
-    return (
-      <button
-        style={courseNoPassedStyleOutline}
-        onClick={handleClick}
-      >
-        {name}
-      </button>
-    );
-  } else if (tipo === "disabled") {
-    return <button style={courseStyleDisable}>{name}</button>;
-  }
+  const styleCourse = getStyle();
 
   return (
-    <button style={courseStyleOutline} onClick={handleClick}>
-      {name}
+    <button style={styleCourse} onClick={() => clickFun()}>
+      {course.name}
     </button>
   );
 }
 
 Course.propTypes = {
-  name: PropTypes.string,
   tipo: PropTypes.string,
-  update: PropTypes.func,
+  clickFun: PropTypes.func,
   course: PropTypes.object,
 };

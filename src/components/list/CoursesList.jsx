@@ -2,9 +2,15 @@ import Course from "../course/course.jsx";
 import { courses } from "../../utils/curricularMap.js";
 import Modal from "../modal/Modal.jsx";
 import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 
 export default function CoursesList(props) {
-  const { kardex, update } = props;
+  const { kardex, handleUpdate } = props;
+
+  const [openM, setOpenM] = useState(0);
+  const [dataM, setDataM] = useState({});
+
+  useEffect(() => {}, [openM, dataM]);
 
   return (
     <>
@@ -24,30 +30,31 @@ export default function CoursesList(props) {
 
               return (
                 <Course
-                  key={index}
+                  key={index + "-" + course.name}
                   course={course}
-                  name={course.name}
                   tipo={styleOption()}
+                  clickFun={() => {
+                    setOpenM(1);
+                    setDataM(course);
+                  }}
                 />
               );
             })}
           </div>
         );
       })}
-      <Modal update={update}/>
+      <Modal
+        handleUpdate={handleUpdate}
+        dataM={dataM}
+        setDataM={setDataM}
+        openM={openM}
+        setOpenM={setOpenM}
+      />
     </>
   );
 }
 
 CoursesList.propTypes = {
   kardex: PropTypes.arrayOf(PropTypes.object),
-  update: PropTypes.func,
+  handleUpdate: PropTypes.func,
 };
-
-// periodo.cursos.map((course, index) => {
-//   return <Course
-//     key={index}
-//     course={course}
-//     name={course.name}
-//     update={update}
-//   />;
