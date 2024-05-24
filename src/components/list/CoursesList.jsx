@@ -18,24 +18,21 @@ export default function CoursesList(props) {
         return (
           <div key={periodo.periodo} className="flex gap-4">
             {periodo.cursos.map((course, index) => {
-              const styleOption = () => {
-                const index = kardex.findIndex(
-                  (i) => i.idCourse === course.idCourse
-                );
-                if (index === -1) {
-                  return "";
-                }
-                return kardex[index].state;
-              };
+
+              const indice = kardex.findIndex(
+                (i) => i.idCourse === course.idCourse
+              );
+
+              const state = indice === -1 ? "" : kardex[indice].state;
 
               return (
                 <Course
                   key={index + "-" + course.name}
                   course={course}
-                  tipo={styleOption()}
+                  tipo={state}
                   clickFun={() => {
                     setOpenM(1);
-                    setDataM(course);
+                    setDataM({...course, state});
                   }}
                 />
               );

@@ -3,21 +3,35 @@ import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import SignpostIcon from "@mui/icons-material/Signpost";
 import { buttonCourseButtonClick, buttonCourseButtonStyles } from "./styles";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { colorPalette } from "../../utils/colorPalette";
 
 export default function ButtonCourseButton(props) {
-  const { action } = props;
+  const { action = 0, activate = false, handleChange } = props;
 
   const [clicked, setClicked] = useState(false);
 
+  useEffect(()=> {
+    setClicked(activate)
+  }, [activate])
+
   const handleClick = () => {
-    setClicked(!clicked);
+
+    if (action === "passed") {
+      handleChange(1)
+    }
+    if (action === "no-passed") {
+      handleChange(2)
+    }
+    if (action === 0) {
+      handleChange(3)
+    }
   };
 
   const checkCourseButtonPassed = (
     <button
       onClick={handleClick}
-      style={!clicked ? buttonCourseButtonStyles : buttonCourseButtonClick}
+      style={!clicked ? buttonCourseButtonStyles : {...buttonCourseButtonClick, color: colorPalette.primary}}
     >
       <CheckCircleOutlineIcon sx={{ fontSize: 100 }} />
       <span>Aprobada</span>
@@ -27,7 +41,7 @@ export default function ButtonCourseButton(props) {
   const checkCourseButtonNoPassed = (
     <button
       onClick={handleClick}
-      style={!clicked ? buttonCourseButtonStyles : buttonCourseButtonClick}
+      style={!clicked ? buttonCourseButtonStyles : {...buttonCourseButtonClick, color: colorPalette.danger}}
     >
       <HighlightOffIcon sx={{ fontSize: 100 }} />
       <span>Reprobada</span>
@@ -37,7 +51,7 @@ export default function ButtonCourseButton(props) {
   const checkCourseButtonDefault = (
     <button
       onClick={handleClick}
-      style={!clicked ? buttonCourseButtonStyles : buttonCourseButtonClick}
+      style={!clicked ? buttonCourseButtonStyles : {...buttonCourseButtonClick, color: colorPalette.terceary}}
     >
       <SignpostIcon sx={{ fontSize: 100 }} />
       <span>No Cursada</span>
@@ -57,4 +71,6 @@ export default function ButtonCourseButton(props) {
 
 ButtonCourseButton.propTypes = {
   action: PropTypes.string,
+  activate: PropTypes.bool,
+  handleChange: PropTypes.func
 };
