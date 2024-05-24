@@ -1,15 +1,26 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
-import Course from "./components/course/course.jsx";
 
 import Sidebar from "./components/sidebar/sidebar.jsx";
 import Situations from "./components/situations/situations.jsx";
-import { courses } from "./utils/curricularMap.js";
+import EditIcon from "@mui/icons-material/Edit";
+
+import { kardex } from "./utils/kardex.jsx";
+import CoursesList from "./components/list/CoursesList.jsx";
+import { colorPalette } from "./utils/colorPalette.jsx";
 
 function App() {
+  const [userCourses, setUserCourses] = useState([...kardex]);
+
   useEffect(() => {
     document.title = "Mapa Curricular";
-  }, []);
+  }, [userCourses]);
+
+  const handleUpdate = (course = {}) => {
+    console.log("actualizando datos del curso" + course.name)
+
+  }
+
   return (
     <>
       <Sidebar />
@@ -56,29 +67,39 @@ function App() {
             </div>
           </div>
           <div className="flex gap-4 items-center">
-            <p style={{minWidth: "fit-content"}}>Situacion academica</p>
+            <p style={{ minWidth: "fit-content" }}>Situacion academica</p>
             <Situations situationType="Regulary" />
           </div>
         </div>
 
-        <div className="flex flex-col items-end mb-5 pr-4">
-                <span style={{border: "solid 2px #035E63", borderRadius: "10px"}} className="px-10 py-2">30%</span>
-                <p>Total de creditos</p>
+        <div className="flex justify-between items-center">
+          <button
+            style={{
+              background: colorPalette.secondary,
+              color: colorPalette.white,
+              borderRadius: "5px",
+            }}
+            className="pl-4 pr-1 py-2 flex gap-3 items-center"
+          >
+            <span>Editar Kardex</span>
+            <EditIcon sx={{ fontSize: "20px", color: colorPalette.white }} />
+          </button>
+          <div className="flex flex-col items-end mb-5 pr-4">
+            <span
+              style={{ border: "solid 2px #035E63", borderRadius: "10px" }}
+              className="px-10 py-2"
+            >
+              30%
+            </span>
+            <p>Total de creditos</p>
+          </div>
         </div>
 
-        <div className="overflow-scroll">
-          {
-            // Aqui se renderizan los componentes de las materias
-            [...courses].reverse().map((periodo, i) => {
-              return (
-                <div key={i} className="flex gap-4 flex-nowrap">
-                  {periodo.map((course) => {
-                    return <Course key={course.idCourse} name={course.name} />;
-                  })}
-                </div>
-              );
-            })
-          }
+        <div className="overflow-x-scroll">
+          <CoursesList
+            kardex={kardex}
+            handleUpdate={handleUpdate}
+          />
         </div>
       </div>
     </>

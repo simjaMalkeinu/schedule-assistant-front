@@ -1,46 +1,36 @@
 import PropTypes from "prop-types";
-import { courseStyle, courseStyleOutline, courseNoPassedStyle, courseNoPassedStyleOutline } from "./style";
+import {
+  courseStyle,
+  courseStyleOutline,
+  courseStyleDisable,
+  courseNoPassedStyleOutline,
+} from "./style";
 
 export default function Course(props) {
-  const { name } = props;
-  return (
-    <button style={courseStyle}>{name}</button>
-  )
-}
+  const { tipo, clickFun, course } = props;
 
-export function CoursePassed(props) {
-  const { name } = props;
-  return (
-    <button style={courseStyleOutline}>{name}</button>
-  )
-}
+  const getStyle = () => {
+    if (tipo === "passed") {
+      return courseStyle;
+    } else if (tipo === "noPassed") {
+      return courseNoPassedStyleOutline;
+    } else if (tipo === "disabled") {
+      return courseStyleDisable;
+    }
+    return courseStyleOutline;
+  };
 
-export function CourseNoPassed(props) {
-  const { name } = props;
-  return (
-    <button style={courseNoPassedStyle}>{name}</button>
-  )
-}
+  const styleCourse = getStyle();
 
-export function CourseNoPassedOutline(props) {
-  const { name } = props;
   return (
-    <button style={courseNoPassedStyleOutline}>{name}</button>
-  )
+    <button style={styleCourse} onClick={() => clickFun()}>
+      {course.name}
+    </button>
+  );
 }
 
 Course.propTypes = {
-  name: PropTypes.string,
-}
-
-CoursePassed.propTypes = {
-  name: PropTypes.string,
-}
-
-CourseNoPassed.propTypes = {
-  name: PropTypes.string,
-}
-
-CourseNoPassedOutline.propTypes = {
-  name: PropTypes.string,
-}
+  tipo: PropTypes.string,
+  clickFun: PropTypes.func,
+  course: PropTypes.object,
+};

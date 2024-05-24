@@ -1,5 +1,4 @@
 import { colors } from '@mui/material';
-import { colorPalette } from '../../utils/colorPalette.jsx'; // Import the 'colorPalette' variable from the appropriate file
 
 export const buttonCourseButtonStyles = {
     background: "none",
@@ -22,7 +21,6 @@ export const buttonCourseButtonClick = {
     border: "none",
     width: "fit-content",
     padding: "10px 20px",
-    color: colorPalette.primary,
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
