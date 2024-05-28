@@ -5,15 +5,16 @@ import Sidebar from "./components/sidebar/sidebar.jsx";
 import Situations from "./components/situations/situations.jsx";
 import EditIcon from "@mui/icons-material/Edit";
 
-import { kardex } from "./utils/kardex.jsx";
+import { userSituation } from "./utils/kardex.jsx";
 import CoursesList from "./components/list/CoursesList.jsx";
 import { colorPalette } from "./utils/colorPalette.jsx";
 
 function App() {
-  const [userCourses, setUserCourses] = useState([...kardex]);
+  const [userCourses, setUserCourses] = useState([]);
 
   useEffect(() => {
     document.title = "Mapa Curricular";
+    setUserCourses(userSituation.kardex)
   }, [userCourses]);
 
   const handleUpdate = (course = {}) => {
@@ -68,7 +69,7 @@ function App() {
           </div>
           <div className="flex gap-4 items-center">
             <p style={{ minWidth: "fit-content" }}>Situacion academica</p>
-            <Situations situationType="Regulary" />
+            <Situations situationType={userSituation.userState} />
           </div>
         </div>
 
@@ -84,12 +85,12 @@ function App() {
             <span>Editar Kardex</span>
             <EditIcon sx={{ fontSize: "20px", color: colorPalette.white }} />
           </button>
-          <div className="flex flex-col items-end mb-5 pr-4">
+          <div className="flex flex-col items-center mb-5 pr-4 gap-2">
             <span
               style={{ border: "solid 2px #035E63", borderRadius: "10px" }}
               className="px-10 py-2"
             >
-              30%
+              {userSituation.credits}
             </span>
             <p>Total de creditos</p>
           </div>
@@ -97,7 +98,7 @@ function App() {
 
         <div className="overflow-x-scroll">
           <CoursesList
-            kardex={kardex}
+            kardex={userSituation.kardex}
             handleUpdate={handleUpdate}
           />
         </div>
