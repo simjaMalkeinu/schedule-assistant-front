@@ -16,6 +16,7 @@ export const situationsStyles = {
 export const situationsStylesNoRegulary = {
     backgroundColor: colorPalette.danger,
     width: "100%",
+    minWidth: "150px",
     maxWidth: "150px",
     padding: "10px",
     borderRadius: "5px",
@@ -29,6 +30,7 @@ export const situationsStylesNoRegulary = {
 export const situationsStylesDictaminary = {
     backgroundColor: colorPalette.quinary,
     width: "100%",
+    minWidth: "150px",
     maxWidth: "150px",
     padding: "10px",
     borderRadius: "5px",
