@@ -7,10 +7,10 @@ import {
 
 export default function Situations(props) {
   const { situationType, num = 0 } = props;
-  if (situationType === "Regulary") {
+  if (situationType === "REGULAR") {
     return regulary;
   }
-  if (situationType === "No Regulary") {
+  if (situationType === "IRREGULAR") {
     return noRegulary;
   }
   if (situationType === "Dictaminary") {

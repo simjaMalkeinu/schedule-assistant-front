@@ -7,14 +7,14 @@ import {
 } from "./style";
 
 export default function Course(props) {
-  const { tipo, clickFun, course } = props;
+  const {clickFun, course } = props;
 
   const getStyle = () => {
-    if (tipo === "passed") {
+    if (course.state === 1) {
       return courseStyle;
-    } else if (tipo === "noPassed") {
+    } else if (course.state === 0) {
       return courseNoPassedStyleOutline;
-    } else if (tipo === "disabled") {
+    } else if (course.state === null) {
       return courseStyleDisable;
     }
     return courseStyleOutline;
