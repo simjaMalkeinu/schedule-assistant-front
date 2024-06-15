@@ -22,10 +22,10 @@ export default function Components() {
         <ButtonOutline text="Cancelar" />
         <ButtonOutline text="Cancelar" icon=<DownloadIcon /> />
 
-        <Course name="React desde cero, prueba de test" tipo="passed" />
-        <Course name="React desde cero, prueba de test" tipo="noPassed"/>
-        <Course name="React desde cero, prueba de test" tipo="disable"/>
-        <Course name="React desde cero, prueba de test" />
+        <Course course={{name: "prueba"}} tipo="passed" />
+        <Course course={{name: "prueba"}} tipo="noPassed"/>
+        <Course course={{name: "prueba"}} tipo="disable"/>
+        <Course course={{name: "prueba"}} />
 
         <Checkbox text="Carga minima" />
 

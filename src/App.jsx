@@ -5,22 +5,40 @@ import Sidebar from "./components/sidebar/sidebar.jsx";
 import Situations from "./components/situations/situations.jsx";
 import EditIcon from "@mui/icons-material/Edit";
 
-import { userSituation } from "./utils/kardex.jsx";
+import axios from 'axios'
+
 import CoursesList from "./components/list/CoursesList.jsx";
 import { colorPalette } from "./utils/colorPalette.jsx";
 
 function App() {
-  const [userCourses, setUserCourses] = useState([]);
+
+  const [userData, setUserData] = useState({});
+
 
   useEffect(() => {
     document.title = "Mapa Curricular";
-    setUserCourses(userSituation.kardex)
-  }, [userCourses]);
+  }, []);
 
   const handleUpdate = (course = {}) => {
-    console.log("actualizando datos del curso" + course.name)
+    console.log("actualizando datos del curso" + course.name);
+  };
 
-  }
+  useEffect(() => {
+    getAllCourses();
+  }, []);
+
+  const getAllCourses = () => {
+    axios
+      .get("http://localhost:3000/courses/2020600020")
+      .then((response) => response.data)
+      .then((data) => {
+        console.log(data)
+        setUserData(data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+
 
   return (
     <>
@@ -69,7 +87,7 @@ function App() {
           </div>
           <div className="flex gap-4 items-center">
             <p style={{ minWidth: "fit-content" }}>Situacion academica</p>
-            <Situations situationType={userSituation.userState} />
+            <Situations situationType={userData.student_state} />
           </div>
         </div>
 
@@ -87,10 +105,10 @@ function App() {
           </button>
           <div className="flex flex-col items-center mb-5 pr-4 gap-2">
             <span
-              style={{ border: "solid 2px #035E63", borderRadius: "10px" }}
-              className="px-10 py-2"
+              style={{ border: "solid 2px #035E63", borderRadius: "10px", color: colorPalette.primary }}
+              className="px-10 py-2 font-bold"
             >
-              {userSituation.credits}
+              {userData.percentage_credits + "%"}
             </span>
             <p>Total de creditos</p>
           </div>
@@ -98,8 +116,8 @@ function App() {
 
         <div className="overflow-x-scroll">
           <CoursesList
-            kardex={userSituation.kardex}
             handleUpdate={handleUpdate}
+            kardexList={userData.kardex}
           />
         </div>
       </div>
