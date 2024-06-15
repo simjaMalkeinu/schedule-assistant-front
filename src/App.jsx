@@ -29,7 +29,7 @@ function App() {
 
   const getAllCourses = () => {
     axios
-      .get("http://localhost:3000/courses/")
+      .get("http://localhost:3000/courses/2020600020")
       .then((response) => response.data)
       .then((data) => {
         console.log(data)
