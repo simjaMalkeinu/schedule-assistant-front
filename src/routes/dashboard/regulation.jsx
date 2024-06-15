@@ -12,7 +12,7 @@ export default function Regulation() {
         <h1 className="text-center text-3xl font-bold md:pb-10 lg:pb-24 pb-5">
           REGLAMENTO PARA INSCRIPCIÓN
         </h1>
-        <section className="flex flex-wrap  sm:flex-row gap-x-3 py-4">
+        <section className="flex flex-wrap sm:flex-row gap-x-3 py-4">
           <Situations situationType={"Regulary"} />
           <Situations situationType={"No Regulary"} />
           <Situations situationType={"Dictaminary"} />
