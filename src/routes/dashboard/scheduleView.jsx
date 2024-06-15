@@ -1,74 +1,108 @@
-import React from "react";
 import Sidebar from "../../components/sidebar/sidebar";
+import HeadCell from "../../components/schedule/HeadCell";
+import SignatureRow from "../../components/schedule/SignatureRow";
+import Button from "../../components/button/button";
+import Donwload from "../../components/icons/Donwload";
 
 export default function ScheduleView() {
   return (
     <>
-      <Sidebar />
-      <div className="flex flex-col w-[95%] items-center">
-        <div className="w-5/6 h-1/4"></div>
-        <div className="w-5/6 h-2/4 flex items-center justify-center">
-          <div className="flex flex-col"></div>
+      <aside className="hidden lg:block w-[300px]">
+        <Sidebar />
+      </aside>
+      <main className="w-full h-full p-[20px_5%] overflow-auto">
+        <h1 className="text-center text-3xl font-bold md:pb-10 lg:pb-24 pb-5">
+          HORARIO
+        </h1>
+        <section className="flex justify-end py-4">
+          <Button text="Descargar" icon={<Donwload />} />
+        </section>
+        <section className="overflow-x-scroll">
           <table className="border-collapse border-2 border-[#00393F] table-auto">
             <thead>
               <tr className="h-[48px] text-xl">
-                <th className="border-collapse border-2 border-[#00393F] bg-[#00393F] font-semibold text-white w-[122px]">
-                  Prioridad
-                </th>
-                <th className="border-collapse border-2 border-[#00393F] bg-[#00393F] font-semibold text-white w-[123px]">
-                  Secuencia
-                </th>
-                <th className="border-collapse border-2 border-[#00393F] bg-[#00393F] font-semibold text-white w-[230px]">
-                  Materia
-                </th>
-                <th className="border-collapse border-2 border-[#00393F] bg-[#00393F] font-semibold text-white w-[150px]">
-                  Profesor
-                </th>
-                <th className="border-collapse border-2 border-[#00393F] bg-[#00393F] font-semibold text-white w-20">
-                  Lunes
-                </th>
-                <th className="border-collapse border-2 border-[#00393F] bg-[#00393F] font-semibold text-white w-20">
-                  Martes
-                </th>
-                <th className="border-collapse border-2 border-[#00393F] bg-[#00393F] font-semibold text-white w-20">
-                  Miercoles
-                </th>
-                <th className="border-collapse border-2 border-[#00393F] bg-[#00393F] font-semibold text-white w-20">
-                  Jueves
-                </th>
-                <th className="border-collapse border-2 border-[#00393F] bg-[#00393F] font-semibold text-white w-20">
-                  Viernes
-                </th>
+                <HeadCell title="Prioridad" width="min-w-[122px]" />
+                <HeadCell title="Secuencia" width="min-w-[123px]" />
+                <HeadCell title="Materia" width="min-w-[230px]" />
+                <HeadCell title="Profesor" width="min-w-[150px]" />
+                <HeadCell title="Lunes" width="min-w-20" />
+                <HeadCell title="Martes" width="min-w-20" />
+                <HeadCell title="Miercoles" width="min-w-20" />
+                <HeadCell title="Jueves" width="min-w-20" />
+                <HeadCell title="Viernes" width="min-w-20" />
               </tr>
             </thead>
             <tbody>
-              <tr className="h-[58px] border-collapse border-2 border-[#00393F] text-sm text-center font-normal">
-                <td className="border-collapse border-2 border-[#00393F] text-[#00393F]">
-                  <div className="rounded-full bg-red-700 w-[31px] h-[31px]"></div>
-                </td>
-                <td className="border-collapse border-2 border-[#00393F] text-[#00393F]">
-                  3NM30
-                </td>
-                <td className="border-collapse border-2 border-[#00393F] text-[#00393F]">
-                  DISEÑO DE INTERFACES DE USUARIO
-                </td>
-                <td className="border-collapse border-2 border-[#00393F] text-[#00393F]">
-                  GOMEZ ARAGON LAURA ANGELICA
-                </td>
-                <td className="border-collapse border-2 border-[#00393F] text-[#00393F]"></td>
-                <td className="border-collapse border-2 border-[#00393F] text-[#00393F]">
-                  13:00-14:00
-                </td>
-                <td className="border-collapse border-2 border-[#00393F] text-[#00393F]"></td>
-                <td className="border-collapse border-2 border-[#00393F] text-[#00393F]">
-                  13:00-15:00
-                </td>
-                <td className="border-collapse border-2 border-[#00393F] text-[#00393F]"></td>
-              </tr>
+              <SignatureRow
+                priority="alta"
+                sequence="3NM30"
+                subject="DISEÑO DE INTERFACES DE USUARIO"
+                teacher="GOMEZ ARAGON LAURA ANGELICA"
+                monday="13:00-14:00"
+                tuesday=""
+                wednesday="13:00-15:00"
+                thursday=""
+                friday="13:00-14:00"
+              />
+              <SignatureRow
+                priority="baja"
+                sequence="3NM30"
+                subject="DISEÑO DE INTERFACES DE USUARIO"
+                teacher="GOMEZ ARAGON LAURA ANGELICA"
+                monday="13:00-14:00"
+                tuesday=""
+                wednesday="13:00-15:00"
+                thursday=""
+                friday="13:00-14:00"
+              />
+              <SignatureRow
+                priority="baja"
+                sequence="3NM30"
+                subject="DISEÑO DE INTERFACES DE USUARIO"
+                teacher="GOMEZ ARAGON LAURA ANGELICA"
+                monday="13:00-14:00"
+                tuesday=""
+                wednesday="13:00-15:00"
+                thursday=""
+                friday="13:00-14:00"
+              />
+              <SignatureRow
+                priority="alta"
+                sequence="3NM30"
+                subject="DISEÑO DE INTERFACES DE USUARIO"
+                teacher="GOMEZ ARAGON LAURA ANGELICA"
+                monday="13:00-14:00"
+                tuesday=""
+                wednesday="13:00-15:00"
+                thursday=""
+                friday="13:00-14:00"
+              />
+              <SignatureRow
+                priority="baja"
+                sequence="3NM30"
+                subject="DISEÑO DE INTERFACES DE USUARIO"
+                teacher="GOMEZ ARAGON LAURA ANGELICA"
+                monday="13:00-14:00"
+                tuesday=""
+                wednesday="13:00-15:00"
+                thursday=""
+                friday="13:00-14:00"
+              />
+              <SignatureRow
+                priority="alta"
+                sequence="3NM30"
+                subject="DISEÑO DE INTERFACES DE USUARIO"
+                teacher="GOMEZ ARAGON LAURA ANGELICA"
+                monday="13:00-14:00"
+                tuesday=""
+                wednesday="13:00-15:00"
+                thursday=""
+                friday="13:00-14:00"
+              />
             </tbody>
           </table>
-        </div>
-      </div>
+        </section>
+      </main>
     </>
   );
 }
