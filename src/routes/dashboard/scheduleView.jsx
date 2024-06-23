@@ -3,8 +3,10 @@ import HeadCell from "../../components/schedule/HeadCell";
 import SignatureRow from "../../components/schedule/SignatureRow";
 import Button from "../../components/button/button";
 import Donwload from "../../components/icons/Donwload";
+import { horarios } from "../../utils/pruebaHorario";
 
 export default function ScheduleView() {
+  const materias = horarios[0];
   return (
     <>
       <aside className="hidden lg:block w-[300px]">
@@ -33,72 +35,22 @@ export default function ScheduleView() {
               </tr>
             </thead>
             <tbody>
-              <SignatureRow
-                priority="alta"
-                sequence="3NM30"
-                subject="DISEÑO DE INTERFACES DE USUARIO"
-                teacher="GOMEZ ARAGON LAURA ANGELICA"
-                monday="13:00-14:00"
-                tuesday=""
-                wednesday="13:00-15:00"
-                thursday=""
-                friday="13:00-14:00"
-              />
-              <SignatureRow
-                priority="baja"
-                sequence="3NM30"
-                subject="DISEÑO DE INTERFACES DE USUARIO"
-                teacher="GOMEZ ARAGON LAURA ANGELICA"
-                monday="13:00-14:00"
-                tuesday=""
-                wednesday="13:00-15:00"
-                thursday=""
-                friday="13:00-14:00"
-              />
-              <SignatureRow
-                priority="baja"
-                sequence="3NM30"
-                subject="DISEÑO DE INTERFACES DE USUARIO"
-                teacher="GOMEZ ARAGON LAURA ANGELICA"
-                monday="13:00-14:00"
-                tuesday=""
-                wednesday="13:00-15:00"
-                thursday=""
-                friday="13:00-14:00"
-              />
-              <SignatureRow
-                priority="alta"
-                sequence="3NM30"
-                subject="DISEÑO DE INTERFACES DE USUARIO"
-                teacher="GOMEZ ARAGON LAURA ANGELICA"
-                monday="13:00-14:00"
-                tuesday=""
-                wednesday="13:00-15:00"
-                thursday=""
-                friday="13:00-14:00"
-              />
-              <SignatureRow
-                priority="baja"
-                sequence="3NM30"
-                subject="DISEÑO DE INTERFACES DE USUARIO"
-                teacher="GOMEZ ARAGON LAURA ANGELICA"
-                monday="13:00-14:00"
-                tuesday=""
-                wednesday="13:00-15:00"
-                thursday=""
-                friday="13:00-14:00"
-              />
-              <SignatureRow
-                priority="alta"
-                sequence="3NM30"
-                subject="DISEÑO DE INTERFACES DE USUARIO"
-                teacher="GOMEZ ARAGON LAURA ANGELICA"
-                monday="13:00-14:00"
-                tuesday=""
-                wednesday="13:00-15:00"
-                thursday=""
-                friday="13:00-14:00"
-              />
+              {materias.map((materia) => {
+                return (
+                  <SignatureRow
+                    key={materia.idschedule}
+                    priority="alta"
+                    sequence={materia.group}
+                    subject={materia.asignatura}
+                    teacher={materia.profesor}
+                    monday={materia.monday}
+                    tuesday={materia.tuesday}
+                    wednesday={materia.wednesday}
+                    thursday={materia.thursday}
+                    friday={materia.friday}
+                  />
+                );
+              })}
             </tbody>
           </table>
         </section>
