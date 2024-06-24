@@ -13,11 +13,7 @@ export default function Modal(props) {
   const [situation, setSituation] = useState(0);
 
   useEffect(() => {
-    if (dataM.state === "") {
-      setSituation(3);
-    } else {
-      setSituation(() => (dataM.state === "passed" ? 1 : 2));
-    }
+    setSituation(dataM.state)
   }, [dataM]);
 
   const handleChange = (sit) => {
@@ -49,11 +45,11 @@ export default function Modal(props) {
             />
             <ButtonCourseButton
               action={"no-passed"}
-              activate={situation === 2 ? true : false}
+              activate={situation === 0 ? true : false}
               handleChange={handleChange}
             />
             <ButtonCourseButton
-              activate={situation === 3 ? true : false}
+              activate={situation === null ? true : false}
               handleChange={handleChange}
             />
           </div>
