@@ -13,14 +13,14 @@ export default function Situations(props) {
   if (situationType === "IRREGULAR") {
     return noRegulary;
   }
-  if (situationType === "Dictaminary") {
+  if (situationType === "DICTAMEN") {
     return dictaminary(num);
   }
 
   return <div style={situationsStyles}>Situacion</div>;
 }
 
-const regulary = <div style={situationsStyles}>Regulary</div>;
+const regulary = <div style={situationsStyles}>Regular</div>;
 const noRegulary = <div style={situationsStylesNoRegulary}>Irregular</div>;
 const dictaminary = (num) => {
   return <div style={situationsStylesDictaminary}>Dictamen {num}</div>;

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-export default function Container(props) {
+export default function ContainerReglamento(props) {
   return (
     <section className="shadow-md rounded-sm">
       <header className="p-3 flex justify-between">
@@ -23,9 +23,15 @@ export default function Container(props) {
       <footer className="min-h-14 bg-gray-100 p-4">
         {props.content.map((item, i) => {
           return (
-            <ul key={i} className="list-disc">
-              <li className="list-item ml-4">{item}</li>
-            </ul>
+            <div key={i} className="pb-4">
+              {item.articulo ? (
+                <h3 className="font-bold">Articulo: {item.articulo}</h3>
+              ) : null}
+              {item.inciso ? (
+                <p className="font-bold">Inciso: {item.inciso}</p>
+              ) : null}
+              {item.descripcion ? <p>{item.descripcion}</p> : null}
+            </div>
           );
         })}
       </footer>
@@ -33,7 +39,7 @@ export default function Container(props) {
   );
 }
 
-Container.propTypes = {
+ContainerReglamento.propTypes = {
   title: PropTypes.string,
   content: PropTypes.array,
 };
