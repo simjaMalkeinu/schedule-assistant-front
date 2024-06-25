@@ -2,8 +2,6 @@ import Sidebar from "../../components/sidebar/sidebar";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import {} from "materialize-css";
-
 import CoursesList from "../../components/list/CoursesList.jsx";
 import Loader from "../../components/loader/Loader.jsx";
 import Preferences from "../../components/preferencesModal/Preferences.jsx";
@@ -17,6 +15,7 @@ export default function ScheduleGenerate() {
 
   useEffect(() => {
     getAllCourses();
+    document.getElementById("View").hidden = true;
   }, []);
 
   useEffect(() => {}, [preferences]);
@@ -71,7 +70,8 @@ export default function ScheduleGenerate() {
       .then((res) => res.data)
       .then((data) => {
         setHorarios(data.horarios);
-        document.getElementById('generar-horario-map').hidden = true;
+        document.getElementById("generar-horario-map").hidden = true;
+        document.getElementById("View").hidden = false;
       })
       .catch((e) => console.log(e));
   };
@@ -109,8 +109,13 @@ export default function ScheduleGenerate() {
         </div>
       </div>
 
-      <div id="View" hidden={true}>
-        <ScheduleView horarios={horarios} />
+      <div id="View" className="container" style={{ width: "100%" }}>
+        <ScheduleView
+          horarios={horarios}
+          list={
+            preferences.list_courses
+          }
+        />
       </div>
     </>
   );
