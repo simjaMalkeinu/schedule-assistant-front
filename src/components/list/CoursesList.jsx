@@ -54,6 +54,6 @@ CoursesList.propTypes = {
   handleUpdate: PropTypes.func,
   kardexList: PropTypes.array,
   view: PropTypes.string,
-  min: PropTypes.int,
-  max: PropTypes.int,
+  min: PropTypes.number,
+  max: PropTypes.number,
 };

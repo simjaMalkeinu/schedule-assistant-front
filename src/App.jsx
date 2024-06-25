@@ -4,9 +4,7 @@ import "./App.css";
 import Sidebar from "./components/sidebar/sidebar.jsx";
 import Situations from "./components/situations/situations.jsx";
 import EditIcon from "@mui/icons-material/Edit";
-
 import axios from "axios";
-
 import CoursesList from "./components/list/CoursesList.jsx";
 import { colorPalette } from "./utils/colorPalette.jsx";
 
@@ -40,7 +38,7 @@ function App() {
     <>
       <Sidebar />
 
-      <div className="container">
+      <div className="container" style={{maxWidth: "100%"}}>
         <h1 className="text-center text-3xl font-bold">MAPA CURRICULAR</h1>
 
         <div className="flex justify-between mb-5">
