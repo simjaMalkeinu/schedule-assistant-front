@@ -3,7 +3,8 @@ import "./App.css";
 
 import Sidebar from "./components/sidebar/sidebar.jsx";
 import Situations from "./components/situations/situations.jsx";
-import EditIcon from "@mui/icons-material/Edit";
+import WarningIcon from "@mui/icons-material/Warning";
+import DoneAllIcon from '@mui/icons-material/DoneAll';
 import axios from "axios";
 import CoursesList from "./components/list/CoursesList.jsx";
 import { colorPalette } from "./utils/colorPalette.jsx";
@@ -17,6 +18,21 @@ function App() {
 
   const handleUpdate = (course = {}) => {
     console.log("actualizando datos del curso" + course.name);
+    console.log("del estado" + course.state);
+    console.log("al estado" + course.newState);
+
+    if (course.state !== course.newState) {
+      axios
+        .put("http://localhost:3000/courses/update/2020600020", {
+          curso: course.idcourse,
+          state: course.newState,
+        })
+        .then((res) => console.log(res))
+        .catch()
+        .finally(() => {
+          getAllCourses();
+        });
+    }
   };
 
   useEffect(() => {
@@ -28,7 +44,6 @@ function App() {
       .get("http://localhost:3000/courses/2020600020")
       .then((response) => response.data)
       .then((data) => {
-        console.log(data);
         setUserData(data);
       })
       .catch((err) => console.log(err));
@@ -38,7 +53,7 @@ function App() {
     <>
       <Sidebar />
 
-      <div className="container" style={{maxWidth: "100%"}}>
+      <div className="container" style={{ maxWidth: "100%" }}>
         <h1 className="text-center text-3xl font-bold">MAPA CURRICULAR</h1>
 
         <div className="flex justify-between mb-5">
@@ -86,7 +101,7 @@ function App() {
         </div>
 
         <div className="flex justify-between items-center">
-          <button
+          {/* <button
             style={{
               background: colorPalette.secondary,
               color: colorPalette.white,
@@ -96,7 +111,32 @@ function App() {
           >
             <span>Editar Kardex</span>
             <EditIcon sx={{ fontSize: "20px", color: colorPalette.white }} />
-          </button>
+          </button> */}
+
+          <ul className="flex flex-col gap-2 items-start">
+            {userData.percentage_credits < 50 ? (
+              <li className="text-yellow-600 flex justify-center items-center gap-3">
+                <WarningIcon />{" "}
+                <strong>No puedes aplicar a las Practicas profesionales</strong>
+              </li>
+            ) : (
+              <li className="text-yellow-600 flex justify-center items-center gap-3">
+                <DoneAllIcon />{" "}
+                <strong>Puedes aplicar a las Practicas profesionales</strong>
+              </li>
+            )}
+            {userData.percentage_credits < 70 ? (
+              <li className="text-yellow-600 flex justify-center items-center gap-3">
+                <WarningIcon />{" "}
+                <strong>No puedes aplicar a servicio social</strong>
+              </li>
+            ) : (
+              <li className="text-yellow-600 flex justify-center items-center gap-3">
+                <DoneAllIcon />{" "}
+                <strong>Puedes aplicar a servicio social</strong>
+              </li>
+            )}
+          </ul>
           <div className="flex flex-col items-center mb-5 pr-4 gap-2">
             <span
               style={{
