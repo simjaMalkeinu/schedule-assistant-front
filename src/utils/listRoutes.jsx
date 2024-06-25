@@ -6,22 +6,22 @@ import GavelIcon from '@mui/icons-material/Gavel';
 export const listRoutes = [
     {
         name: "Mapa curricular",
-        path: "/mapa-curricular",
+        path: "/app",
         icon: <AccountTreeIcon />,
     },
     {
         name: "Reglamento",
-        path: "/reglamento",
+        path: "/Regulation",
         icon: <DonutSmallIcon />,
     },
     {
         name: "Generar horário",
-        path: "/generar-horario",
+        path: "/ScheduleGenerate",
         icon: <FactCheckIcon />,
     },
     {
         name: "Visualizar horário",
-        path: "/visualizar-horario",
+        path: "/ScheduleView",
         icon: <GavelIcon />,
     }
 ];

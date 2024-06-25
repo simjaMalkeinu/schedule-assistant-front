@@ -5,15 +5,13 @@ import Sidebar from "./components/sidebar/sidebar.jsx";
 import Situations from "./components/situations/situations.jsx";
 import EditIcon from "@mui/icons-material/Edit";
 
-import axios from 'axios'
+import axios from "axios";
 
 import CoursesList from "./components/list/CoursesList.jsx";
 import { colorPalette } from "./utils/colorPalette.jsx";
 
 function App() {
-
   const [userData, setUserData] = useState({});
-
 
   useEffect(() => {
     document.title = "Mapa Curricular";
@@ -32,13 +30,11 @@ function App() {
       .get("http://localhost:3000/courses/2020600020")
       .then((response) => response.data)
       .then((data) => {
-        console.log(data)
+        console.log(data);
         setUserData(data);
       })
       .catch((err) => console.log(err));
   };
-
-
 
   return (
     <>
@@ -105,7 +101,11 @@ function App() {
           </button>
           <div className="flex flex-col items-center mb-5 pr-4 gap-2">
             <span
-              style={{ border: "solid 2px #035E63", borderRadius: "10px", color: colorPalette.primary }}
+              style={{
+                border: "solid 2px #035E63",
+                borderRadius: "10px",
+                color: colorPalette.primary,
+              }}
               className="px-10 py-2 font-bold"
             >
               {userData.percentage_credits + "%"}
@@ -118,6 +118,7 @@ function App() {
           <CoursesList
             handleUpdate={handleUpdate}
             kardexList={userData.kardex}
+            view={"view"}
           />
         </div>
       </div>

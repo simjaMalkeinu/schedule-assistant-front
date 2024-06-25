@@ -4,15 +4,12 @@ import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 
 export default function CoursesList(props) {
-  const { handleUpdate, kardexList = [] } = props;
+  const { handleUpdate, kardexList = [], view, min, max } = props;
 
   const [openM, setOpenM] = useState(0);
   const [dataM, setDataM] = useState({});
 
-  useEffect(() => {
-  }, [openM, dataM]);
-
-  
+  useEffect(() => {}, [openM, dataM]);
 
   return (
     <>
@@ -28,6 +25,8 @@ export default function CoursesList(props) {
                     setOpenM(1);
                     setDataM({ ...course });
                   }}
+                  enable={periodo.num >= min && periodo.num <= max}
+                  view={view}
                 />
               );
             })}
@@ -35,13 +34,17 @@ export default function CoursesList(props) {
         );
       })}
 
-      <Modal
-        handleUpdate={handleUpdate}
-        dataM={dataM}
-        setDataM={setDataM}
-        openM={openM}
-        setOpenM={setOpenM}
-      />
+      {view ? (
+        view !== "generate" ? (
+          <Modal
+            handleUpdate={handleUpdate}
+            dataM={dataM}
+            setDataM={setDataM}
+            openM={openM}
+            setOpenM={setOpenM}
+          />
+        ) : null
+      ) : null}
     </>
   );
 }
@@ -49,5 +52,8 @@ export default function CoursesList(props) {
 CoursesList.propTypes = {
   // courses: PropTypes.array,
   handleUpdate: PropTypes.func,
-  kardexList: PropTypes.array
+  kardexList: PropTypes.array,
+  view: PropTypes.string,
+  min: PropTypes.int,
+  max: PropTypes.int,
 };
