@@ -21,10 +21,10 @@ export default function ButtonCourseButton(props) {
       handleChange(1)
     }
     if (action === "no-passed") {
-      handleChange(2)
+      handleChange(0)
     }
     if (action === 0) {
-      handleChange(3)
+      handleChange(null)
     }
   };
 

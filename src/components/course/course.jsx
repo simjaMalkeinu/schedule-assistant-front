@@ -7,16 +7,30 @@ import {
 } from "./style";
 
 export default function Course(props) {
-  const {clickFun, course } = props;
+  const { clickFun, course, enable, view } = props;
 
   const getStyle = () => {
-    if (course.state === 1) {
-      return courseStyle;
-    } else if (course.state === 0) {
-      return courseNoPassedStyleOutline;
-    } else if (course.state === null) {
+    if (view === "generate") {
+      if (enable) {
+        if (course.state === 1) {
+          return courseStyleDisable;
+        } else if (course.state === 0) {
+          return courseNoPassedStyleOutline;
+        } else if (course.state === null) {
+          return courseStyleOutline;
+        }
+      }
       return courseStyleDisable;
+    } else {
+      if (course.state === 1) {
+        return courseStyle;
+      } else if (course.state === 0) {
+        return courseNoPassedStyleOutline;
+      } else if (course.state === null) {
+        return courseStyleDisable;
+      }
     }
+
     return courseStyleOutline;
   };
 
@@ -33,4 +47,6 @@ Course.propTypes = {
   tipo: PropTypes.string,
   clickFun: PropTypes.func,
   course: PropTypes.object,
+  enable: PropTypes.bool,
+  view: PropTypes.string
 };

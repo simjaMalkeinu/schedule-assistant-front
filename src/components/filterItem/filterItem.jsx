@@ -9,7 +9,7 @@ export default function FilterItem(props) {
   return (
     <div style={filterItemStyles}>
       <span>{text}</span>
-      <CancelIcon sx={{ color: colorPalette.quaternary }} />
+      {/* <CancelIcon sx={{ color: colorPalette.quaternary }} /> */}
     </div>
   );
 }
