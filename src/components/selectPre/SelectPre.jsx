@@ -33,7 +33,7 @@ export default function SelectPre(props) {
       <select
         className="browser-default"
         onChange={handleOption}
-        value={option || null}
+        value={option}
       >
         <option defaultValue>Seleccionar</option>
         {data.map((a, i) => {

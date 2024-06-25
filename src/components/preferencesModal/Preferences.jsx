@@ -8,6 +8,7 @@ import { culturalAct } from "../../utils/culturalAct.js";
 import { sportAct } from "../../utils/sportAct.js";
 
 import SelectPre from "../selectPre/SelectPre.jsx";
+import Hora from "../hora/Hora.jsx";
 
 export default function Preferences(props) {
   const { handleUpdate, preferences, ss_state, pp_state } = props;
@@ -23,11 +24,27 @@ export default function Preferences(props) {
     handleUpdate({ ...preferences, turno: valor });
   };
 
-  const spotUpdate = (cultural_act) => {
-    handleUpdate({ ...preferences, cultural_act});
+  const sporAct = (cultural_act) => {
+    handleUpdate({ ...preferences, cultural_act });
   };
-  const culUpdate = (deportive_act) => {
-    handleUpdate({ ...preferences, deportive_act});
+  const cultUpdate = (deportive_act) => {
+    handleUpdate({ ...preferences, deportive_act });
+  };
+
+  const ftUpdate = (free_time) => {
+    handleUpdate({ ...preferences, free_time });
+  };
+
+  const ssUpdate = (ss_time) => {
+    handleUpdate({ ...preferences, ss_time });
+  };
+
+  const ppUpdate = (pp_time) => {
+    handleUpdate({ ...preferences, pp_time });
+  };
+
+  const wUpdate = (w_time) => {
+    handleUpdate({ ...preferences, w_time });
   };
 
   return (
@@ -79,70 +96,44 @@ export default function Preferences(props) {
             <div className="mt-4">
               <label>Turno</label>
               <div className="flex">
-                <Checkbox text={"Matutino"} id="4" valor={"M"} update={turnoUpdate} dato={preferences.turno} />
-                <Checkbox text={"Vespertino"} id="5" valor={"V"} update={turnoUpdate} dato={preferences.turno} />
-                <Checkbox text={"Mixto"} id="6" valor={"MX"} update={turnoUpdate} dato={preferences.turno} />
+                <Checkbox
+                  text={"Matutino"}
+                  id="4"
+                  valor={"M"}
+                  update={turnoUpdate}
+                  dato={preferences.turno}
+                />
+                <Checkbox
+                  text={"Vespertino"}
+                  id="5"
+                  valor={"V"}
+                  update={turnoUpdate}
+                  dato={preferences.turno}
+                />
+                <Checkbox
+                  text={"Mixto"}
+                  id="6"
+                  valor={"MX"}
+                  update={turnoUpdate}
+                  dato={preferences.turno}
+                />
               </div>
             </div>
             <div className="grid grid-cols-2 gap-10 mt-4">
-              <SelectPre data={sportAct}  handleUpdate={culUpdate}/>
-              <SelectPre data={culturalAct}  handleUpdate={sportAct}/>
+              <SelectPre data={sportAct} handleUpdate={cultUpdate} />
+              <SelectPre data={culturalAct} handleUpdate={sporAct} />
             </div>
-            <div className="mt-4">
-              <label>Hora libre</label>
-              <div className="flex space-x-2">
-                <input type="text" className="browser-default" value="00:00" />
-                <span>a</span>
-                <input type="text" className="browser-default" value="00:00" />
-              </div>
-            </div>
+            <Hora handleUpdate={ftUpdate} text={"Tiempo libre"} />
 
             {ss_state ? (
-              <div className="mt-4">
-                <label>Servicio social</label>
-                <div className="flex space-x-2">
-                  <input
-                    type="text"
-                    className="browser-default"
-                    value="00:00"
-                  />
-                  <span>a</span>
-                  <input
-                    type="text"
-                    className="browser-default"
-                    value="00:00"
-                  />
-                </div>
-              </div>
+              <Hora handleUpdate={ssUpdate} text={"Servicio social"} />
             ) : null}
 
             {pp_state ? (
-              <div className="mt-4">
-                <label>Practicas profesionales</label>
-                <div className="flex space-x-2">
-                  <input
-                    type="text"
-                    className="browser-default"
-                    value="00:00"
-                  />
-                  <span>a</span>
-                  <input
-                    type="text"
-                    className="browser-default"
-                    value="00:00"
-                  />
-                </div>
-              </div>
+              <Hora handleUpdate={ppUpdate} text={"Practicas profesionales"} />
             ) : null}
 
-            <div className="mt-4">
-              <label>Horario de trabajo</label>
-              <div className="flex space-x-2">
-                <input type="text" className="browser-default" value="00:00" />
-                <span>a</span>
-                <input type="text" className="browser-default" value="00:00" />
-              </div>
-            </div>
+            <Hora handleUpdate={wUpdate} text={"Horario de trabajo"} />
 
             <div className="mt-4">
               <p>No cumples los requisitos para aplicar a lo siguiente:</p>
@@ -173,7 +164,7 @@ export default function Preferences(props) {
 Preferences.propTypes = {
   // courses: PropTypes.array,
   handleUpdate: PropTypes.func,
-  preferences: PropTypes.array,
+  preferences: PropTypes.object,
   ss_state: PropTypes.bool,
   pp_state: PropTypes.bool,
 };

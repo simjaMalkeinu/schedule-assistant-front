@@ -21,6 +21,8 @@ export default function Checkbox(props) {
     setChecked(!checked);
     if (checked === false) {
       update(valor);
+    } else {
+      update(null)
     }
   };
 

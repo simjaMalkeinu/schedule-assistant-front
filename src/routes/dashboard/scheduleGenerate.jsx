@@ -7,10 +7,13 @@ import {} from "materialize-css";
 import CoursesList from "../../components/list/CoursesList.jsx";
 import Loader from "../../components/loader/Loader.jsx";
 import Preferences from "../../components/preferencesModal/Preferences.jsx";
+import ListPreferences from "../../components/listPreferences/ListPreferences";
+import ScheduleView from "./scheduleView.jsx";
 
 export default function ScheduleGenerate() {
   const [map, setMap] = useState([]);
   const [preferences, setPreferences] = useState({});
+  const [horarios, setHorarios] = useState([]);
 
   useEffect(() => {
     getAllCourses();
@@ -42,8 +45,8 @@ export default function ScheduleGenerate() {
           });
 
         setPreferences({
-          carga: 0,
-          turno: "",
+          carga: null,
+          turno: null,
           cultural_act: null,
           deportive_act: null,
           free_time: null,
@@ -60,11 +63,28 @@ export default function ScheduleGenerate() {
       });
   };
 
+  const getSchedules = () => {
+    document.getElementById("generar-horario-map").hidden = true;
+
+    axios
+      .post("http://localhost:3000/schedule/2020600020", preferences)
+      .then((res) => res.data)
+      .then((data) => {
+        setHorarios(data.horarios);
+        document.getElementById('generar-horario-map').hidden = true;
+      })
+      .catch((e) => console.log(e));
+  };
+
   return (
     <>
       <Sidebar />
 
-      <div className="overflow-x-scrlol" style={{ width: "100%" }}>
+      <div
+        className="overflow-x-scrlol"
+        style={{ width: "100%" }}
+        id="generar-horario-map"
+      >
         <div className="container" style={{ maxWidth: "100%" }}>
           <h1 className="text-center text-3xl font-bold">MAPA CURRICULAR</h1>
           <Preferences
@@ -73,6 +93,10 @@ export default function ScheduleGenerate() {
             handleUpdate={setPreferences}
             preferences={preferences}
           />
+
+          <ListPreferences list={preferences} />
+
+          <button onClick={getSchedules}>Generar horarios</button>
 
           <Loader />
 
@@ -83,6 +107,10 @@ export default function ScheduleGenerate() {
             max={map.max_period}
           />
         </div>
+      </div>
+
+      <div id="View" hidden={true}>
+        <ScheduleView horarios={horarios} />
       </div>
     </>
   );

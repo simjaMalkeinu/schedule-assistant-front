@@ -4,12 +4,15 @@ import SignatureRow from "../../components/schedule/SignatureRow";
 import Button from "../../components/button/button";
 import Donwload from "../../components/icons/Donwload";
 
-export default function ScheduleView() {
+export default function ScheduleView(props) {
+
+  const {horarios} = props
+
   return (
     <>
-      <aside className="hidden lg:block w-[300px]">
+      {/* <aside className="hidden lg:block w-[300px]">
         <Sidebar />
-      </aside>
+      </aside> */}
       <main className="w-full h-full p-[20px_5%] overflow-auto">
         <h1 className="text-center text-3xl font-bold md:pb-10 lg:pb-24 pb-5">
           HORARIO
