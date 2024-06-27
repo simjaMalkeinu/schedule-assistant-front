@@ -4,7 +4,7 @@ import "./App.css";
 import Sidebar from "./components/sidebar/sidebar.jsx";
 import Situations from "./components/situations/situations.jsx";
 import WarningIcon from "@mui/icons-material/Warning";
-import DoneAllIcon from '@mui/icons-material/DoneAll';
+import DoneAllIcon from "@mui/icons-material/DoneAll";
 import axios from "axios";
 import CoursesList from "./components/list/CoursesList.jsx";
 import { colorPalette } from "./utils/colorPalette.jsx";
@@ -12,9 +12,7 @@ import { colorPalette } from "./utils/colorPalette.jsx";
 function App() {
   const [userData, setUserData] = useState({});
 
-  useEffect(() => {
-    document.title = "Mapa Curricular";
-  }, []);
+  const [user, setUser] = useState({});
 
   const handleUpdate = (course = {}) => {
     console.log("actualizando datos del curso" + course.name);
@@ -23,7 +21,7 @@ function App() {
 
     if (course.state !== course.newState) {
       axios
-        .put("http://localhost:3000/courses/update/2020600020", {
+        .put("http://localhost:3000/courses/update/" + user.boleta, {
           curso: course.idcourse,
           state: course.newState,
         })
@@ -36,12 +34,21 @@ function App() {
   };
 
   useEffect(() => {
+    document.title = "Mapa Curricular";
+    setUser(JSON.parse(localStorage.getItem("user")));
+  }, []);
+
+  useEffect(() => {
+    document.title = "Mapa Curricular";
     getAllCourses();
   }, []);
 
   const getAllCourses = () => {
+
+    const data = JSON.parse(localStorage.getItem("user"))
+
     axios
-      .get("http://localhost:3000/courses/2020600020")
+      .get("http://localhost:3000/courses/" + data.boleta)
       .then((response) => response.data)
       .then((data) => {
         setUserData(data);

@@ -21,8 +21,9 @@ export default function ScheduleGenerate() {
   useEffect(() => {}, [preferences]);
 
   const getAllCourses = () => {
+    const data = JSON.parse(localStorage.getItem("user"));
     axios
-      .get("http://localhost:3000/schedule/2020600020")
+      .get("http://localhost:3000/schedule/" + data.boleta)
       .then((response) => response.data)
       .then((data) => {
         setMap(data);
@@ -110,12 +111,7 @@ export default function ScheduleGenerate() {
       </div>
 
       <div id="View" className="container" style={{ width: "100%" }}>
-        <ScheduleView
-          horarios={horarios}
-          list={
-            preferences.list_courses
-          }
-        />
+        <ScheduleView horarios={horarios} list={preferences.list_courses} />
       </div>
     </>
   );

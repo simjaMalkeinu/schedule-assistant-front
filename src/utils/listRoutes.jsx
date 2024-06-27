@@ -1,7 +1,7 @@
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import DonutSmallIcon from '@mui/icons-material/DonutSmall';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
-import GavelIcon from '@mui/icons-material/Gavel';
+// import GavelIcon from '@mui/icons-material/Gavel';
 
 export const listRoutes = [
     {
@@ -19,9 +19,9 @@ export const listRoutes = [
         path: "/ScheduleGenerate",
         icon: <FactCheckIcon />,
     },
-    {
-        name: "Visualizar horário",
-        path: "/ScheduleView",
-        icon: <GavelIcon />,
-    }
+    // {
+    //     name: "Visualizar horário",
+    //     path: "/ScheduleView",
+    //     icon: <GavelIcon />,
+    // }
 ];

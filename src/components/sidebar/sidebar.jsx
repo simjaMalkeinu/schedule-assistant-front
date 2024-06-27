@@ -10,6 +10,13 @@ import {
 import { listRoutes } from "../../utils/listRoutes.jsx";
 
 export default function Sidebar() {
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const logout = () => {
+    localStorage.removeItem("user");
+    location.href = "/";
+  };
+
   return (
     <nav style={sidebarStyle}>
       {/* user data */}
@@ -39,11 +46,17 @@ export default function Sidebar() {
             color: colorPalette.quinary,
           }}
         >
-          Simja Coto
+          {user.name + " " + user.ape_pat + " " + user.ape_mat}
         </p>
-        <p style={{ fontSize: "20px", fontWeight: "bold" }}>2020600020</p>
+        <p style={{ fontSize: "20px", fontWeight: "bold" }}>{user.boleta}</p>
       </div>
-      <hr style={{width: "70%", margin: "0 auto", borderColor: colorPalette.terceary}}/>
+      <hr
+        style={{
+          width: "70%",
+          margin: "0 auto",
+          borderColor: colorPalette.terceary,
+        }}
+      />
 
       {/* sidebar list */}
       <ul style={sidebarListStyle}>
@@ -61,10 +74,15 @@ export default function Sidebar() {
 
       {/* close session */}
       <div className="nav_close_session">
-        <a href="">
+        <button
+          href=""
+          className="text-black"
+          style={{ fontSize: "25px" }}
+          onClick={logout}
+        >
           Cerrar sesión
           <LogoutIcon sx={{ fontSize: 40 }} />
-        </a>
+        </button>
       </div>
     </nav>
   );
